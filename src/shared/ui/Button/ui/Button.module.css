@@ -1,0 +1,22 @@
+.wide {
+  width: 240px;
+}
+
+.regular {
+  width: 170px;
+}
+
+.button {
+  border: none;
+  background-color: var(--background-primary);
+  border-radius: 12px;
+  height: 48px;
+  cursor: pointer;
+  color: var(--text-color-white);
+  font-weight: var(--font-weight-600);
+}
+
+.button:hover {
+  background-color: var(--color-purple-800);
+}
+

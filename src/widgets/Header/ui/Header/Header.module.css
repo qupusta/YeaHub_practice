@@ -1,0 +1,26 @@
+.header {
+  background-color: var(--color-white-900);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.header__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navigation__auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navigation__nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
