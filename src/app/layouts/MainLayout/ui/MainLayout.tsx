@@ -1,13 +1,17 @@
 import { Header } from '@/widgets/Header';
-import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-export const MainLayout: React.FC = () => {
+import styles from './MainLayout.module.css';
+
+export const MainLayout = () => {
   return (
-    <>
-      <h2>Main Layout</h2>
+    <section>
       <Header />
-      <Outlet />
-    </>
+      <div className={styles.container}>
+        <main>
+          <Outlet />
+        </main>
+      </div>
+    </section>
   );
 };

@@ -1,0 +1,16 @@
+.link-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color-bright);
+}
+
+.link-button__text {
+  margin: 0;
+  padding-top: 4px;
+}
+
+.link-button__text--purple {
+  color: var(--text-color-link-active);
+  font-weight: var(--font-weight-500);
+}
