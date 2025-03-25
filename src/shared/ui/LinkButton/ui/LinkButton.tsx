@@ -12,7 +12,12 @@ type LinkButtonProps = {
 
 export const LinkButton = ({ text, link, color }: LinkButtonProps) => {
   return (
-    <NavLink to={link}>
+    <NavLink
+      to={link}
+      className={({ isActive }) =>
+        isActive ? `${styles.link} ${styles.active}` : styles.link
+      }
+    >
       <button className={styles['link-button']}>
         <p
           className={`${styles['link-button__text']}

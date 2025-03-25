@@ -1,0 +1,23 @@
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    width: 804px;
+    border-radius: 24px;
+    margin: 0 auto;
+}
+
+.questions-list {
+    background-color: var(--background-block);
+}
+
+.questions-list__question {
+    list-style: disc;
+}
+
+.questions-list__question::marker {
+    color: #5533ff;
+    font-size: 16px;
+}
+
+/* .question__title {} */

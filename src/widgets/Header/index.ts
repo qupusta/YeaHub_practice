@@ -1,1 +1,2 @@
-export { Header } from './ui/Header/HeaderLayout';
+import { Header } from './ui/HeaderLayout';
+export { Header }
