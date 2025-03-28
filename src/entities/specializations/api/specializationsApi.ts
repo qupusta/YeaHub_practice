@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { ISpecializations } from "@/shared/types/specializations";
+import { ISpecializations } from "@/entities/specializations/model/types/specializations";
 
 export const specializationsApi = createApi({
     reducerPath: 'specializationsApi',

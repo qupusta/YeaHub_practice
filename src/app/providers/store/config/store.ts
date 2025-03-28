@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { questionsApi } from '@/entities/questions/api/questionsApi';
+import { questionsPageReducer } from '@/pages/QuestionsList';
 
 export const store = configureStore({
   reducer: {
     [questionsApi.reducerPath]: questionsApi.reducer,
+    questionsPage: questionsPageReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(questionsApi.middleware),

@@ -1,6 +1,6 @@
 import { fetchBaseQuery, createApi } from "@reduxjs/toolkit/query/react";
 
-import { ISkills } from "@/shared/types/skills";
+import { ISkills } from "@/entities/skills/model/types/skills";
 
 export const skillsApi = createApi({
     reducerPath: 'skillsApi',

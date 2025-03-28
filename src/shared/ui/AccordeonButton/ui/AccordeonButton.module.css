@@ -1,0 +1,13 @@
+.accordeon__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.accordeon__img {
+  transform: rotate(180deg);
+}
+
+.active {
+  transform: rotate(180deg);
+}
