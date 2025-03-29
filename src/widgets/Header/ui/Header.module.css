@@ -3,6 +3,7 @@
   padding: 16px 0;
   border-bottom: 1px solid var(--border-color);
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .header__navigation {
