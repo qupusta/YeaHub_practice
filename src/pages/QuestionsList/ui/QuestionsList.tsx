@@ -1,5 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+
+import { MouseEvent } from 'react';
+
 import { useGetPublicQuestionsQuery } from '@/entities/questions/api/questionsApi';
 import { questionsPageSelectors } from '../model/selectors/questionsPageSelectors';
 import { questionsPageActions } from '../model/slices/questionsPageSlice';
@@ -13,33 +16,37 @@ import { Pagination } from '@/shared/ui/Pagination';
 
 export const QuestionsList = () => {
   const dispatch = useDispatch();
-  const currentPage = useSelector(questionsPageSelectors.currentPage)
-  const filters = useSelector(questionsPageSelectors.filters)
+  const currentPage = useSelector(questionsPageSelectors.currentPage);
+  const filters = useSelector(questionsPageSelectors.filters);
 
-  const { data, error, isLoading } = useGetPublicQuestionsQuery(filters)
+  const { data, error, isLoading } = useGetPublicQuestionsQuery(filters);
   const questions = data?.data;
 
-  const handleNextPage = () => {
-    dispatch(questionsPageActions.setPage(currentPage + 1))
-  }
+  const handleNextPage = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    dispatch(questionsPageActions.setPage(currentPage + 1));
+  };
 
-  const handlePrevPage = () => {
+  const handlePrevPage = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     if (currentPage > 1) {
-      dispatch(questionsPageActions.setPage(currentPage - 1))
+      dispatch(questionsPageActions.setPage(currentPage - 1));
     }
-  }
+  };
 
-  const maxPage = data?.total && data?.limit ?
-    Math.ceil(data.total / data.limit)
-    :
-    undefined
+  const onPageChange = (page: number) => {
+    dispatch(questionsPageActions.setPage(page));
+  };
+
+  const maxPage =
+    data?.total && data?.limit ? Math.ceil(data.total / data.limit) : 0;
 
   if (isLoading) return <h2>Loading</h2>;
   if (error) return <h2>Error</h2>;
 
   return (
-    <>
-      <section className={styles.container}>
+    <section className={styles.container}>
+      <div className={styles.wrapper__questions}>
         <ul className={styles['questions-list']}>
           {questions?.map((question: IQuestion) => (
             <li
@@ -53,9 +60,15 @@ export const QuestionsList = () => {
             </li>
           ))}
         </ul>
-        <QuestionsFilter />
-      </section>
-      <Pagination onNextPage={handleNextPage} onPrevPage={handlePrevPage} maxPage={maxPage} currentPage={currentPage} />
-    </>
+        <Pagination
+          onNextPage={handleNextPage}
+          onPrevPage={handlePrevPage}
+          onPageChange={onPageChange}
+          maxPage={maxPage}
+          currentPage={currentPage}
+        />
+      </div>
+      <QuestionsFilter />
+    </section>
   );
 };
