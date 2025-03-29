@@ -1,5 +1,5 @@
-import { QuestionsPageState } from "@/pages/QuestionsList/model/types/questionsPageType";
+import { QuestionsPageState } from "@/pages/QuestionsPage/model/types/questionsPageType";
 
 export interface State {
-  questionsPage:QuestionsPageState;
+  questionsPage: QuestionsPageState;
 }

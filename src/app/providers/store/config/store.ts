@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { questionsApi } from '@/entities/questions/api/questionsApi';
-import { questionsPageReducer } from '@/pages/QuestionsList';
+import { questionsPageReducer } from '@/pages/QuestionsPage';
 
 export const store = configureStore({
   reducer: {

@@ -33,6 +33,9 @@ const questionsPageSlice = createSlice({
       state.rate = action.payload;
       state.page = 1;
     },
+    resetFilters: () => {
+      return initialState;
+    }
   },
 });
 

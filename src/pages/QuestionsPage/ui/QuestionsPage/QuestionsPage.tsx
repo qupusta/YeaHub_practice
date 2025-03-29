@@ -4,17 +4,20 @@ import { useSelector } from 'react-redux';
 import { MouseEvent } from 'react';
 
 import { useGetPublicQuestionsQuery } from '@/entities/questions/api/questionsApi';
-import { questionsPageSelectors } from '../model/selectors/questionsPageSelectors';
-import { questionsPageActions } from '../model/slices/questionsPageSlice';
+import { questionsPageSelectors } from '../../model/selectors/questionsPageSelectors';
+import { questionsPageActions } from '../../model/slices/questionsPageSlice';
 
-import { QuestionsFilter } from '@/features/questionsFilter';
+// import { QuestionsFilter } from '@/features/questionsFilter';
 import type { IQuestion } from '@/entities/questions/model/types/question';
 import { AccordeonButton } from '@/shared/ui/AccordeonButton';
 
-import styles from './QuestionsList.module.css';
-import { Pagination } from '@/shared/ui/Pagination';
+import styles from './QuestionsPage.module.css';
+import { QuestionsPagePagination } from '../QuestionsPagePagination/QuestionsPagePagination';
+import { QuestionsFilterPanel } from '@/widgets/QuestionsFilterPanel/ui/QuestionsFilterPanel';
+import { QuestionsPageSkeleton } from './QuestionsPage.skeleton';
+import { PaginationSkeleton } from '@/shared/ui/Pagination/ui/Paginations.skeleton';
 
-export const QuestionsList = () => {
+export const QuestionsPage = () => {
   const dispatch = useDispatch();
   const currentPage = useSelector(questionsPageSelectors.currentPage);
   const filters = useSelector(questionsPageSelectors.filters);
@@ -41,7 +44,13 @@ export const QuestionsList = () => {
   const maxPage =
     data?.total && data?.limit ? Math.ceil(data.total / data.limit) : 0;
 
-  if (isLoading) return <h2>Loading</h2>;
+  if (!isLoading)
+    return (
+      <div className={styles.skeleton__wrapper}>
+        <QuestionsPageSkeleton />
+        <PaginationSkeleton />
+      </div>
+    );
   if (error) return <h2>Error</h2>;
 
   return (
@@ -60,15 +69,17 @@ export const QuestionsList = () => {
             </li>
           ))}
         </ul>
-        <Pagination
-          onNextPage={handleNextPage}
-          onPrevPage={handlePrevPage}
-          onPageChange={onPageChange}
-          maxPage={maxPage}
-          currentPage={currentPage}
-        />
+        {maxPage > 1 && (
+          <QuestionsPagePagination
+            onNextPage={handleNextPage}
+            onPrevPage={handlePrevPage}
+            onPageChange={onPageChange}
+            maxPage={maxPage}
+            currentPage={currentPage}
+          />
+        )}
       </div>
-      <QuestionsFilter />
+      <QuestionsFilterPanel />
     </section>
   );
 };
