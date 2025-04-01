@@ -1,8 +1,8 @@
 import { Pagination } from '@/shared/ui/Pagination';
 
-import styles from './QuestionsPagePagination.module.css';
+import styles from './QuestionsPagination.module.css';
 
-interface QuestionsPagePaginationProps {
+interface QuestionsPaginationProps {
   onNextPage: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onPrevPage: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onPageChange: (page: number) => void;
@@ -10,13 +10,13 @@ interface QuestionsPagePaginationProps {
   maxPage: number;
 }
 
-export const QuestionsPagePagination = ({
+export const QuestionsPagination = ({
   onNextPage,
   onPrevPage,
   onPageChange,
   currentPage,
   maxPage,
-}: QuestionsPagePaginationProps) => {
+}: QuestionsPaginationProps) => {
   return (
     <div className={styles.container}>
       <Pagination

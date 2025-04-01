@@ -1,23 +1,31 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import styles from './SearchInput.module.css';
 
 interface SearchInputProps {
   onSearch: (query: string) => void;
   placeholder?: string;
-  currentValue?: string;
+  initialValue?: string;
+  debounceDelay?: number;
 }
 
 export const SearchInput = ({
   onSearch,
-  placeholder = '...',
-  currentValue,
+  placeholder = 'Поиск вопросов...',
+  initialValue = '',
+  debounceDelay = 500,
 }: SearchInputProps) => {
-  const [query, setQuery] = useState(currentValue || '');
+  const [query, setQuery] = useState(initialValue);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onSearch(query);
+    }, debounceDelay);
+
+    return () => clearTimeout(timer);
+  }, [query, debounceDelay, onSearch]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setQuery(value);
-    onSearch(value);
+    setQuery(event.target.value);
   };
 
   return (

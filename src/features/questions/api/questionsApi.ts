@@ -4,7 +4,7 @@ import {
   GetQuestionsByIdResponse,
   GetQuestionsListParamsRequest,
   GetQuestionsListResponse
-} from '@/entities/questions/model/types/question';
+} from '@/features/questions/model/types/question';
 import { ApiTags } from '@/shared/config/api/apiTags';
 
 export const questionsApi = createApi({
