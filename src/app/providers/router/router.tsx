@@ -5,7 +5,7 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ErrorPage } from '@/pages/ErrorPage';
 
 import '@/app/styles/App.css';
-import { QuestionsList } from '@/pages/QuestionsList';
+import { QuestionsPage } from '@/pages/QuestionsPage/ui/QuestionsPage/QuestionsPage';
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         path: 'questions',
-        element: <QuestionsList />,
+        element: <QuestionsPage />,
       },
       {
         path: '*',

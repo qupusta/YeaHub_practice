@@ -1,14 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { questionsApi } from '@/entities/questions/api/questionsApi';
-import { questionsPageReducer } from '@/pages/QuestionsList';
+import { questionsApi } from '@/features/questions/api/questionsApi';
+import { questionsReducer } from '@/features/questions/model/slices/questionsSlice';
+import { specializationsApi } from '@/entities/specializations/api/specializationsApi';
 
 export const store = configureStore({
   reducer: {
     [questionsApi.reducerPath]: questionsApi.reducer,
-    questionsPage: questionsPageReducer,
+    questions: questionsReducer,
+    [specializationsApi.reducerPath]: specializationsApi.reducer,
+
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(questionsApi.middleware),
+    getDefaultMiddleware().concat(questionsApi.middleware, specializationsApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

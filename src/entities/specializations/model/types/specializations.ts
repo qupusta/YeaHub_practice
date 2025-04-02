@@ -1,4 +1,4 @@
-export interface ISpecializations {
+export interface ISpecialization {
   id: number;
   title: string;
   description: string;

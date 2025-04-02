@@ -1,18 +1,20 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-import { ISpecializations } from "@/entities/specializations/model/types/specializations";
+import { ISpecialization } from "../model/types/specializations";
 
 export const specializationsApi = createApi({
     reducerPath: 'specializationsApi',
+    tagTypes: ['Specializations', "Specializations_detail"],
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.yeatwork.ru' }),
     endpoints: (builder) => ({
-        getSpecializations: builder.query<{ data: ISpecializations[] }, void>({
+        getSpecializations: builder.query<{ data: ISpecialization[] }, void>({
             query: () => ({
                 url: '/specializations',
             }),
+            providesTags: ['Specializations']
         }),
-        getSpecializationsById: builder.query<{ data: ISpecializations[] }, string>({
+        getSpecializationsById: builder.query<{ data: ISpecialization[] }, string>({
             query: (id) => `/specializations/${id}`,
+            providesTags: ['Specializations_detail']
         }),
     }),
 });

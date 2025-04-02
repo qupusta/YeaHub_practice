@@ -2,21 +2,31 @@
   width: 240px;
 }
 
-.regular {
+.button--purple {
+  color: var(--text-color-white);
+  background-color: var(--background-primary);
+  border-radius: 12px;
+  height: 48px;
   width: 170px;
+}
+
+.button--transparent {
+  color: var(--color-purple-800);
+  background-color: transparent;
+}
+
+.button--transparent:hover {
+  display: inline;
+  text-decoration: underline;
 }
 
 .button {
   border: none;
-  background-color: var(--background-primary);
-  border-radius: 12px;
-  height: 48px;
   cursor: pointer;
-  color: var(--text-color-white);
   font-weight: var(--font-weight-600);
 }
 
-.button:hover {
+.button--purple:hover {
   background-color: var(--color-purple-800);
 }
 
