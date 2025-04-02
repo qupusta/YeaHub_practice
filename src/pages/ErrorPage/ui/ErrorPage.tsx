@@ -12,7 +12,7 @@ const ErrorPage = () => {
     <div className={styles.container}>
       <h1 className={styles['error-page__text']}>Упс!</h1>
       <h3 className={styles['error-page__description']}>Что-то пошло не так</h3>
-      <Button className="wide" onClick={handleOnClickBack}>
+      <Button className={`wide button--purple`} onClick={handleOnClickBack}>
         Вернуться назад
       </Button>
       ;

@@ -31,8 +31,10 @@ export const QuestionsList = ({
         {questions.map((question: IQuestion) => (
           <QuestionsCard
             key={question.id}
-            id={question.id}
             title={question.title}
+            shortAnswer={question.shortAnswer}
+            complexity={question.complexity}
+            rate={question.rate}
           />
         ))}
       </ul>

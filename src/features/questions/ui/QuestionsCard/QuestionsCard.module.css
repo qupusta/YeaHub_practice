@@ -6,7 +6,13 @@
 
 .question__flex-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    min-height: 100px;
+}
+
+.questions-list__question {
+    position: relative;
 }
 
 .questions-list__question:nth-child(1) {
@@ -24,3 +30,8 @@
     margin: 0;
 }
 
+.question__button {
+    position: absolute;
+    right: 0;
+    transform: translateY(-100%);
+}
