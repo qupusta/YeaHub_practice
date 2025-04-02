@@ -1,0 +1,7 @@
+.wrapper {
+    background-color: var(--background-block);
+    border-radius: 24px;
+    padding: 24px 20px 24px 24px;
+    align-items: center;
+    box-sizing: border-box;
+}

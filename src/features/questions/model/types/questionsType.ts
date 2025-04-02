@@ -4,5 +4,5 @@ export interface QuestionsState {
 	skills?: number[];
 	rate?: number[];
 	complexity?: number[];
-	specializations?: number[];
+	specializations?: number;
 }

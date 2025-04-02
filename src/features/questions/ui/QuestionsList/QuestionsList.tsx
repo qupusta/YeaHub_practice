@@ -3,9 +3,11 @@ import { QuestionsPagination } from '../QuestionsPagination/QuestionsPagination'
 
 import type { IQuestion } from '@/features/questions/model/types/question';
 import styles from './QuestionsList.module.css';
+import { BlockWrapper } from '@/shared/ui/BlockWrapper';
 
 interface QuestionsListProps {
   questions: IQuestion[];
+  questionsTitle: string | undefined;
   isLoading?: boolean;
   pagination?: {
     currentPage: number;
@@ -18,11 +20,13 @@ interface QuestionsListProps {
 
 export const QuestionsList = ({
   questions,
+  questionsTitle,
   pagination,
 }: QuestionsListProps) => {
   if (!questions?.length) return <h2>Ничего не найдено</h2>;
   return (
-    <div className={styles.wrapper__questions}>
+    <BlockWrapper>
+      <h2 className={styles.title}>Вопросы {questionsTitle}</h2>
       <ul className={styles['questions-list']}>
         {questions.map((question: IQuestion) => (
           <QuestionsCard
@@ -33,6 +37,6 @@ export const QuestionsList = ({
         ))}
       </ul>
       {pagination && <QuestionsPagination {...pagination} />}
-    </div>
+    </BlockWrapper>
   );
 };

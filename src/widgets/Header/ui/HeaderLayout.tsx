@@ -20,7 +20,7 @@ export const Header = () => {
         </div>
         <div className={styles['navigation__auth-buttons']}>
           <LinkButton text="Вход" link="auth" color="purple" />
-          <Button className="regular" onClick={handleRegisterClick}>
+          <Button className="button--purple" onClick={handleRegisterClick}>
             Регистрация
           </Button>
         </div>

@@ -3,7 +3,6 @@ import { useGetPublicQuestionsQuery } from '@/features/questions/api/questionsAp
 import { questionsPageSelectors } from '@/features/questions/model/selectors/questionsSelectors';
 import { questionsActions } from '@/features/questions/model/slices/questionsSlice';
 import { QuestionsFilter, QuestionsList } from '@/features/questions/ui';
-import useDebounce from '@/shared/hooks/useDebounce';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -12,16 +11,19 @@ export const QuestionsMainContent = () => {
   const dispatch = useDispatch();
   const currentPage = useSelector(questionsPageSelectors.currentPage);
   const filters = useSelector(questionsPageSelectors.filters);
-
-  const debouncedFilters = useDebounce(filters, 300);
-
   const { data: questionsData } = useGetPublicQuestionsQuery({
-    ...debouncedFilters,
+    ...filters,
+    specialization: filters.specializations,
     page: currentPage,
-    limit: 10,
   });
 
   const { data: specializations } = useGetSpecializationsQuery();
+
+  const currentSpecialization = filters.specializations
+    ? specializations?.data.filter(
+        (spec) => spec.id === filters.specializations
+      )[0].title
+    : undefined;
 
   const handlePageChange = (page: number) => {
     dispatch(questionsActions.setPage(page));
@@ -43,6 +45,7 @@ export const QuestionsMainContent = () => {
     <>
       <QuestionsList
         questions={questionsData?.data || []}
+        questionsTitle={currentSpecialization}
         pagination={{
           currentPage,
           maxPage: Math.ceil((questionsData?.total || 0) / 10),
@@ -54,7 +57,7 @@ export const QuestionsMainContent = () => {
       <QuestionsFilter
         onSearch={handleSearch}
         onSpecializationToggle={handleSpecializationToggle}
-        selectedSpecializations={filters.specializations || []}
+        selectedSpecializations={filters.specializations}
         specializations={specializations?.data || []}
       />
     </>

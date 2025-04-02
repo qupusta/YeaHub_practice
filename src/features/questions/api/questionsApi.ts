@@ -21,7 +21,8 @@ export const questionsApi = createApi({
           title: params.title,
           skills: params.skills?.join(','),
           complexity: params.complexity?.join(','),
-          rate: params.rate?.join(',')
+          rate: params.rate?.join(','),
+          specialization: params.specialization || undefined
         }
       }),
       providesTags: [ApiTags.QUESTIONS],

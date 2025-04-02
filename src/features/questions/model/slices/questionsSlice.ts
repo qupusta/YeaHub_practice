@@ -8,7 +8,7 @@ const initialState: QuestionsState = {
   skills: undefined,
   rate: undefined,
   complexity: undefined,
-  specializations: undefined,
+  specializations: 11,
 }
 
 const questionsSlice = createSlice({
@@ -24,24 +24,8 @@ const questionsSlice = createSlice({
     setSkills: (state, action: PayloadAction<number[] | undefined>) => {
       state.skills = action.payload;
     },
-    setSpecializations: (state, action: PayloadAction<number[] | undefined>) => {
-      state.specializations = action.payload;
-    },
     toggleSpecializations: (state, action: PayloadAction<number>) => {
-      if (!state.specializations) {
-        state.specializations = [action.payload];
-        return;
-      }
-
-      const index = state.specializations.indexOf(action.payload);
-      if (index === -1) {
-        state.specializations.push(action.payload);
-      } else {
-        state.specializations.splice(index, 1);
-        if (state.specializations.length === 0) {
-          state.specializations = undefined
-        }
-      }
+      state.specializations = action.payload
     },
     setComplexity: (state, action: PayloadAction<number[] | undefined>) => {
       state.complexity = action.payload;
@@ -49,8 +33,8 @@ const questionsSlice = createSlice({
     setRate: (state, action: PayloadAction<number[]>) => {
       state.rate = action.payload;
     },
-    resetFilters: (state) => {
-      state.page = 1;
+    resetFilters: () => {
+      return initialState
     }
   },
 });

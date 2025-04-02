@@ -10,7 +10,7 @@ interface SearchInputProps {
 
 export const SearchInput = ({
   onSearch,
-  placeholder = 'Поиск вопросов...',
+  placeholder = '...',
   initialValue = '',
   debounceDelay = 500,
 }: SearchInputProps) => {
@@ -29,11 +29,13 @@ export const SearchInput = ({
   };
 
   return (
-    <input
-      className={styles.input}
-      placeholder={placeholder}
-      value={query}
-      onChange={handleChange}
-    />
+    <div className={styles.wrapper__input}>
+      <input
+        className={styles.input}
+        placeholder={placeholder}
+        value={query}
+        onChange={handleChange}
+      />
+    </div>
   );
 };

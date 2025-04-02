@@ -3,11 +3,14 @@ import { SearchInput } from '@/shared/ui/SearchInput';
 import { ISpecialization } from '@/entities/specializations/model/types/specializations';
 
 import styles from './QuestionsFilter.module.css';
+import { FilterButton } from '@/shared/ui/FilterButton';
+import { Button } from '@/shared/ui/Button';
+import { BlockWrapper } from '@/shared/ui/BlockWrapper';
 
 interface QuestionsFilterProps {
   onSearch: (query: string) => void;
   onSpecializationToggle: (id: number) => void;
-  selectedSpecializations: number[];
+  selectedSpecializations: number | undefined;
   specializations: ISpecialization[];
   initialSearchQuery?: string;
 }
@@ -20,32 +23,44 @@ export const QuestionsFilter = ({
   initialSearchQuery = '',
 }: QuestionsFilterProps) => {
   const [query, setQuery] = useState(initialSearchQuery);
+  const [showAll, setShowAll] = useState(false);
 
   const handleChangeInput = (value: string) => {
     setQuery(value);
     onSearch(value);
   };
 
+  const visibleList = showAll ? specializations : specializations.slice(0, 4);
+
   return (
-    <div className={styles.filterPanel}>
+    <BlockWrapper>
       <SearchInput
         onSearch={handleChangeInput}
         placeholder="Введите запрос..."
         initialValue={query}
       />
-      <h3>Специализации</h3>
+      <h3 className={styles.filterPanel__title}>Специализация</h3>
       <ul className={styles['specializations-list']}>
-        {specializations.map((spec) => (
-          <li key={spec.id}>
-            <button
-              className={`${styles.filter__button}
-                 ${selectedSpecializations?.includes(spec.id) ? 'active' : ''}`}
-              onChange={() => onSpecializationToggle(spec.id)}
+        {visibleList.map((spec) => (
+          <li
+            key={spec.id}
+            className={styles['specializations-list__list-elem']}
+          >
+            <FilterButton
+              id={spec.id}
+              title={spec.title}
+              onChangeHandler={(id) => onSpecializationToggle(id)}
+              isChecked={selectedSpecializations === spec.id}
             />
-            {spec.title}
           </li>
         ))}
       </ul>
-    </div>
+      <Button
+        onClick={() => setShowAll(!showAll)}
+        className="button--transparent"
+      >
+        {showAll ? 'Скрыть' : 'Показать еще'}
+      </Button>
+    </BlockWrapper>
   );
 };

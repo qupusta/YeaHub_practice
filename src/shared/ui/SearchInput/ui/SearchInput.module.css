@@ -1,0 +1,26 @@
+.input {
+    width: 100%;
+    padding: 12px 52px;
+    border-radius: 24px;
+    border: 1px solid var(--border-input);
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        border-color: var(--color-purple-700);
+    }
+}
+
+.wrapper__input::before {
+    content: url(../../../assets/icons/searchIcon.svg);
+    position: absolute;
+    left: 34px;
+    transform: translate(-50%, 50%);
+    pointer-events: none;
+}
+
+.wrapper__input {
+    position: relative;
+}
