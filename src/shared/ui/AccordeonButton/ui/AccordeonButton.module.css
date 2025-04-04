@@ -9,5 +9,5 @@
 }
 
 .accordeon__img--open {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }

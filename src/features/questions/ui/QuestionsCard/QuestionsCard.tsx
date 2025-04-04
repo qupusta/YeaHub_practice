@@ -4,6 +4,8 @@ import { AccordeonButton } from '@/shared/ui/AccordeonButton';
 import { Button } from '@/shared/ui/Button';
 
 import styles from './QuestionsCard.module.css';
+import { NavLink } from 'react-router-dom';
+import { TagBubble } from '@/shared/ui/TagBubble';
 
 interface QuestionCardProps {
   title: string;
@@ -32,14 +34,27 @@ export const QuestionsCard = ({
           className={styles['question__button']}
         >
           <AccordeonButton isOpen={openPopover} />
+
         </Button>
       </div>
 
       {openPopover && (
         <div className={styles.popover}>
-          <p>Рейтинг: {rate}</p>
-          <p>Сложность: {complexity}</p>
-          <div dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
+          <div className={styles.question__tags}>
+            <TagBubble title='Рейтинг' value={rate} />
+            <TagBubble title='Сложность' value={complexity} />
+          </div>
+          <div className={styles['question__short-answer']} dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
+          <NavLink to='/###'
+            style={{
+              position: 'absolute',
+              right: 0,
+              bottom: 24,
+              fontWeight: 600,
+              color: 'var(--color-purple-600)'
+            }}>
+            Подробнее &rarr;
+          </NavLink>
         </div>
       )}
     </li>

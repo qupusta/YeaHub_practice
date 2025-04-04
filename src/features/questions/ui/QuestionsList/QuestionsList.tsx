@@ -8,7 +8,6 @@ import { BlockWrapper } from '@/shared/ui/BlockWrapper';
 interface QuestionsListProps {
   questions: IQuestion[];
   questionsTitle: string | undefined;
-  isLoading?: boolean;
   pagination?: {
     currentPage: number;
     maxPage: number;
@@ -23,7 +22,6 @@ export const QuestionsList = ({
   questionsTitle,
   pagination,
 }: QuestionsListProps) => {
-  if (!questions?.length) return <h2>Ничего не найдено</h2>;
   return (
     <BlockWrapper>
       <h2 className={styles.title}>Вопросы {questionsTitle}</h2>

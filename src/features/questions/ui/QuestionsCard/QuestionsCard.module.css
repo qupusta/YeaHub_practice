@@ -35,3 +35,13 @@
     right: 0;
     transform: translateY(-100%);
 }
+
+.question__short-answer {
+    margin-bottom: 48px;
+}
+
+.question__tags {
+    margin: 24px 0;
+    display: flex;
+    column-gap: 40px;
+}
