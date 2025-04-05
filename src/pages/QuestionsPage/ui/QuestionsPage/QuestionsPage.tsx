@@ -1,13 +1,12 @@
+import { QuestionsFilterPanel } from '@/widgets/QuestionsFilterPanel';
 import styles from './QuestionsPage.module.css';
-import { QuestionsMainContent } from '@/widgets/QuestionsMainContent';
-import { QuestionsPageSkeleton } from './QuestionsPage.skeleton';
+import { QuestionsListPanel } from '@/widgets/QuestionsListPanel';
 
 const QuestionsPage = () => (
-
-  <QuestionsPageSkeleton />
-  // <div className={styles.container}>
-  //   <QuestionsMainContent />
-  // </div>
+  <div className={styles.container}>
+    <QuestionsListPanel />
+    <QuestionsFilterPanel />
+  </div>
 );
 
-export default QuestionsPage
+export default QuestionsPage;

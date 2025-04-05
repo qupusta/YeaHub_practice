@@ -2,15 +2,15 @@ import { useGetSpecializationsQuery } from '@/entities/specializations/api/speci
 import { useGetPublicQuestionsQuery } from '@/features/questions/api/questionsApi';
 import { questionsPageSelectors } from '@/features/questions/model/selectors/questionsSelectors';
 import { questionsActions } from '@/features/questions/model/slices/questionsSlice';
-import { QuestionsFilter, QuestionsList } from '@/features/questions/ui';
-import { useCallback } from 'react';
+import { QuestionsList } from '@/features/questions/ui';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-export const QuestionsMainContent = () => {
+export const QuestionsListPanel = () => {
   const dispatch = useDispatch();
   const currentPage = useSelector(questionsPageSelectors.currentPage);
   const filters = useSelector(questionsPageSelectors.filters);
+
   const { data: questionsData } = useGetPublicQuestionsQuery({
     ...filters,
     specialization: filters.specializations,
@@ -29,18 +29,6 @@ export const QuestionsMainContent = () => {
     dispatch(questionsActions.setPage(page));
   };
 
-  const handleSearch = useCallback(
-    (query: string) => {
-      dispatch(questionsActions.setTitle(query));
-    },
-    [dispatch]
-  );
-
-  const handleSpecializationToggle = (id: number) => {
-    dispatch(questionsActions.toggleSpecializations(id));
-    dispatch(questionsActions.setPage(1));
-  };
-
   return (
     <>
       <QuestionsList
@@ -53,12 +41,6 @@ export const QuestionsMainContent = () => {
           onPrevPage: () => handlePageChange(Math.max(1, currentPage - 1)),
           onPageChange: handlePageChange,
         }}
-      />
-      <QuestionsFilter
-        onSearch={handleSearch}
-        onSpecializationToggle={handleSpecializationToggle}
-        selectedSpecializations={filters.specializations}
-        specializations={specializations?.data || []}
       />
     </>
   );

@@ -5,19 +5,30 @@ interface FilterButtonProps {
   onChangeHandler: (id: number) => void;
   title: string;
   isChecked: boolean;
+  type?: string;
+  image?: string | undefined;
 }
 
 export const FilterButton = ({
   id,
+  image = undefined,
   onChangeHandler,
   title,
   isChecked,
+  type = 'radio',
 }: FilterButtonProps) => (
   <label className={styles.filter__label}>
+    {image && (
+      <img
+        className={styles.filter__ico}
+        src={image}
+        alt={image ? title : ''}
+      />
+    )}
     <p className={styles.title}>{title}</p>
     <input
-      type="radio"
-      className={styles['filter-button']}
+      type={type}
+      className={`${styles['filter-button']} ${type === 'checkbox' ? styles['filter-button'] : ''}`}
       checked={isChecked}
       onChange={() => onChangeHandler(id)}
     />

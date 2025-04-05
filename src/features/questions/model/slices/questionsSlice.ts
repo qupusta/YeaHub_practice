@@ -21,8 +21,8 @@ const questionsSlice = createSlice({
     setTitle: (state, action: PayloadAction<string>) => {
       state.title = action.payload;
     },
-    setSkills: (state, action: PayloadAction<number[] | undefined>) => {
-      state.skills = action.payload;
+    setSkills: (state, action: PayloadAction<number>) => {
+      state.skills?.push(action.payload)
     },
     toggleSpecializations: (state, action: PayloadAction<number>) => {
       state.specializations = action.payload
