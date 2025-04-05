@@ -33,7 +33,7 @@ export const QuestionsSkills = ({
               id={skill.id}
               title={skill.title}
               onChangeHandler={(id) => onSkillToggle(id)}
-              isChecked={selectedSkills?.indexOf(skill.id) !== -1}
+              isChecked={selectedSkills ? selectedSkills.indexOf(skill.id) !== -1 : false}
             />
           </li>
         ))}

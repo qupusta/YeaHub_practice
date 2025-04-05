@@ -22,6 +22,10 @@
     display: none;
 }
 
+.filter__label:has(input[type="checkbox"]:checked) {
+    border: 1px solid var(--color-purple-700);
+}
+
 .filter-button[type="radio"] {
     display: none;
 }

@@ -34,29 +34,37 @@ export const QuestionsCard = ({
           className={styles['question__button']}
         >
           <AccordeonButton isOpen={openPopover} />
-
         </Button>
       </div>
 
-      {openPopover && (
-        <div className={styles.popover}>
-          <div className={styles.question__tags}>
-            <TagBubble title='Рейтинг' value={rate} />
-            <TagBubble title='Сложность' value={complexity} />
-          </div>
-          <div className={styles['question__short-answer']} dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
-          <NavLink to='/###'
+      <div
+        className={`${styles.popover} ${openPopover ? styles['popover--open'] : ''
+          }`}
+      >
+        <div className={styles.question__tags}>
+          <TagBubble title="Рейтинг" value={rate} />
+          <TagBubble title="Сложность" value={complexity} />
+        </div>
+        <div
+          className={styles['question__short-answer']}
+          dangerouslySetInnerHTML={{ __html: sanitizedHTML }}
+        />
+        {
+          openPopover &&
+          <NavLink
+            to="/###"
             style={{
               position: 'absolute',
               right: 0,
               bottom: 24,
               fontWeight: 600,
-              color: 'var(--color-purple-600)'
-            }}>
+              color: 'var(--color-purple-600)',
+            }}
+          >
             Подробнее &rarr;
           </NavLink>
-        </div>
-      )}
+        }
+      </div>
     </li>
   );
 };

@@ -1,3 +1,29 @@
+.popover {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+        max-height 0.3s ease-in-out,
+        opacity 0.2s ease-in-out;
+}
+
+.popover--open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.question__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question__tags {
+    margin: 24px 0;
+    display: flex;
+    column-gap: 40px;
+}
+
 .questions-list__question {
     list-style: disc;
     border-bottom: var(--border-color) 1px solid;
@@ -33,15 +59,8 @@
 .question__button {
     position: absolute;
     right: 0;
-    transform: translateY(-100%);
 }
 
 .question__short-answer {
     margin-bottom: 48px;
-}
-
-.question__tags {
-    margin: 24px 0;
-    display: flex;
-    column-gap: 40px;
 }

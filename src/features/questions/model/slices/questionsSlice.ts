@@ -22,7 +22,19 @@ const questionsSlice = createSlice({
       state.title = action.payload;
     },
     setSkills: (state, action: PayloadAction<number>) => {
-      state.skills?.push(action.payload)
+
+      if (state.skills === undefined) {
+        state.skills = [action.payload];
+      }
+      else if (state.skills.includes(action.payload)) {
+        state.skills = state.skills.filter(id => id !== action.payload);
+        if (state.skills.length === 0) {
+          state.skills = undefined;
+        }
+      }
+      else {
+        state.skills.push(action.payload);
+      }
     },
     toggleSpecializations: (state, action: PayloadAction<number>) => {
       state.specializations = action.payload

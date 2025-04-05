@@ -28,7 +28,7 @@ export const FilterButton = ({
     <p className={styles.title}>{title}</p>
     <input
       type={type}
-      className={`${styles['filter-button']} ${type === 'checkbox' ? styles['filter-button'] : ''}`}
+      className={`${styles['filter-button']} ${type === 'checkbox' ? styles['filter-button--checkbox'] : ''}`}
       checked={isChecked}
       onChange={() => onChangeHandler(id)}
     />

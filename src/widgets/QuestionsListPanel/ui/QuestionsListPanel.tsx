@@ -15,14 +15,15 @@ export const QuestionsListPanel = () => {
     ...filters,
     specialization: filters.specializations,
     page: currentPage,
+    skills: filters.skills,
   });
 
   const { data: specializations } = useGetSpecializationsQuery();
 
   const currentSpecialization = filters.specializations
     ? specializations?.data.filter(
-        (spec) => spec.id === filters.specializations
-      )[0].title
+      (spec) => spec.id === filters.specializations
+    )[0].title
     : undefined;
 
   const handlePageChange = (page: number) => {
@@ -30,18 +31,16 @@ export const QuestionsListPanel = () => {
   };
 
   return (
-    <>
-      <QuestionsList
-        questions={questionsData?.data || []}
-        questionsTitle={currentSpecialization}
-        pagination={{
-          currentPage,
-          maxPage: Math.ceil((questionsData?.total || 0) / 10),
-          onNextPage: () => handlePageChange(currentPage + 1),
-          onPrevPage: () => handlePageChange(Math.max(1, currentPage - 1)),
-          onPageChange: handlePageChange,
-        }}
-      />
-    </>
+    <QuestionsList
+      questions={questionsData?.data || []}
+      questionsTitle={currentSpecialization}
+      pagination={{
+        currentPage,
+        maxPage: Math.ceil((questionsData?.total || 0) / 10),
+        onNextPage: () => handlePageChange(currentPage + 1),
+        onPrevPage: () => handlePageChange(Math.max(1, currentPage - 1)),
+        onPageChange: handlePageChange,
+      }}
+    />
   );
 };

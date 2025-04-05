@@ -22,6 +22,8 @@ export const QuestionsList = ({
   questionsTitle,
   pagination,
 }: QuestionsListProps) => {
+
+  if (!questions.length) return <h2>Не найдено</h2>
   return (
     <BlockWrapper>
       <h2 className={styles.title}>Вопросы {questionsTitle}</h2>
