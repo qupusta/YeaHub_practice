@@ -55,10 +55,7 @@ export const QuestionsFilter = ({
           </li>
         ))}
       </ul>
-      <Button
-        onClick={() => setShowAll(!showAll)}
-        className="button--transparent"
-      >
+      <Button onClick={() => setShowAll(!showAll)} variant="transparent">
         {showAll ? 'Скрыть' : 'Показать еще'}
       </Button>
     </BlockWrapper>

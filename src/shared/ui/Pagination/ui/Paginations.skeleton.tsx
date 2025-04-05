@@ -4,7 +4,7 @@ export const PaginationSkeleton = () => (
   <SkeletonGroup
     direction="row"
     gap="12px"
-    style={{ alignItems: 'center', marginTop: 40 }}
+    style={{ alignItems: 'center', margin: '0 auto'}}
   >
     <Skeleton width="40px" height="40px" />
     {[...Array(5)].map((_, i) => (

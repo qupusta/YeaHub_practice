@@ -13,7 +13,7 @@ const NotFoundPage = () => {
     <div className={styles.container}>
       <img className={styles['not-found__img']} src={NotFoundImg} alt="404" />
       <h3 className={styles['not-found__text']}>Страница не найдена</h3>
-      <Button className="wide" onClick={handleOnClickBack}>
+      <Button className={'wide button--purple'} onClick={handleOnClickBack}>
         Вернуться назад
       </Button>
       ;

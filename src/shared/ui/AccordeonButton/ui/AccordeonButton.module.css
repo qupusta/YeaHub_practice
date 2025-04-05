@@ -8,6 +8,6 @@
   transform: rotate(180deg);
 }
 
-.active {
-  transform: rotate(180deg);
+.accordeon__img--open {
+  transform: rotate(360deg);
 }

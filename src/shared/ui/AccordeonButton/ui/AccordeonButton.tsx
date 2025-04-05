@@ -1,16 +1,21 @@
-import accordeon from '@/shared/assets/icons/accordeon.svg'
+import accordeon from '@/shared/assets/icons/accordeon.svg';
 
-import styles from './AccordeonButton.module.css'
+import styles from './AccordeonButton.module.css';
 
-export const AccordeonButton = () => {
-  const buttonStyle = styles['accordeon__img']
-  
+interface AccordeonButtonProps {
+  isOpen: boolean;
+}
+
+export const AccordeonButton = ({ isOpen }: AccordeonButtonProps) => {
+  const buttonStyle = isOpen
+    ? styles['accordeon__img--open']
+    : styles['accordeon__img'];
 
   return (
     <>
-      <button className={styles['accordeon__button']}>
+      <div className={styles['accordeon__button']}>
         <img className={buttonStyle} src={accordeon} />
-      </button>
+      </div>
     </>
-  )
-}
+  );
+};

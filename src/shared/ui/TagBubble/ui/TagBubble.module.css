@@ -1,0 +1,21 @@
+.tag {
+  background-color: var(--background-light-hover);
+  display: inline-block;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.tag__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color-bright);
+  margin: 0;
+}
+
+.tag__value {
+  color: var(--text-color-white);
+  background-color: var(--color-purple-700);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  margin-left: 12px;
+}

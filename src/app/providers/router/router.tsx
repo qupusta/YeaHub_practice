@@ -5,7 +5,8 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ErrorPage } from '@/pages/ErrorPage';
 
 import '@/app/styles/App.css';
-import { QuestionsPage } from '@/pages/QuestionsPage/ui/QuestionsPage/QuestionsPage';
+import { Suspense } from 'react';
+import { QuestionsPage, QuestionsPageSkeleton } from '@/pages/QuestionsPage';
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +16,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         path: 'questions',
-        element: <QuestionsPage />,
+        element:
+          <Suspense fallback={<QuestionsPageSkeleton />}>
+            <QuestionsPage />
+          </Suspense>,
       },
       {
         path: '*',

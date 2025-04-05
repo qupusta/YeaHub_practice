@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import styles from './Skeleton.module.css';
 
 interface SkeletonProps {
@@ -5,6 +6,7 @@ interface SkeletonProps {
   height?: string | number;
   variant?: 'text' | 'rect' | 'circle';
   className?: string;
+  style?: CSSProperties;
 }
 
 export const Skeleton = ({
@@ -12,6 +14,7 @@ export const Skeleton = ({
   height = '1rem',
   variant = 'rect',
   className = '',
+  style
 }: SkeletonProps) => {
   const variantClass = {
     text: styles.text,
@@ -22,7 +25,7 @@ export const Skeleton = ({
   return (
     <div
       className={`${styles.base} ${variantClass} ${className}`}
-      style={{ width, height }}
+      style={{ width, height, ...style }}
     />
   );
 };
