@@ -1,0 +1,15 @@
+.rate-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 8px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.filterPanel__title {
+    color: var(--text-color-light);
+    font-weight: 400;
+    font-size: 14px;
+}

@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { QuestionsState } from "../types/questionsType";
+import { ComplexityFilterId } from "@/shared/constants/complexityFilters";
+import { RateFilterId } from "@/shared/constants/rateFilters";
 
 const initialState: QuestionsState = {
   page: 1,
@@ -22,7 +24,6 @@ const questionsSlice = createSlice({
       state.title = action.payload;
     },
     setSkills: (state, action: PayloadAction<number>) => {
-
       if (state.skills === undefined) {
         state.skills = [action.payload];
       }
@@ -39,11 +40,33 @@ const questionsSlice = createSlice({
     toggleSpecializations: (state, action: PayloadAction<number>) => {
       state.specializations = action.payload
     },
-    setComplexity: (state, action: PayloadAction<number[] | undefined>) => {
-      state.complexity = action.payload;
+    setComplexity: (state, action: PayloadAction<ComplexityFilterId | undefined>) => {
+      const payload = action.payload;
+
+      if (payload === undefined) {
+        state.complexity = undefined;
+        return;
+      }
+
+      state.complexity = state.complexity?.includes(payload)
+        ? state.complexity.filter(id => id !== payload).length
+          ? state.complexity.filter(id => id !== payload)
+          : undefined
+        : [...(state.complexity || []), payload];
     },
-    setRate: (state, action: PayloadAction<number[]>) => {
-      state.rate = action.payload;
+    setRate: (state, action: PayloadAction<RateFilterId | undefined>) => {
+      const payload = action.payload;
+
+      if (payload === undefined) {
+        state.complexity = undefined;
+        return;
+      }
+
+      state.rate = state.rate?.includes(payload)
+        ? state.rate.filter(id => id !== payload).length
+          ? state.rate.filter(id => id !== payload)
+          : undefined
+        : [...(state.rate || []), payload];
     },
     resetFilters: () => {
       return initialState

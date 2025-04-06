@@ -11,7 +11,7 @@ export const QuestionsListPanel = () => {
   const currentPage = useSelector(questionsPageSelectors.currentPage);
   const filters = useSelector(questionsPageSelectors.filters);
 
-  const { data: questionsData } = useGetPublicQuestionsQuery({
+  const { data: questionsData, isLoading } = useGetPublicQuestionsQuery({
     ...filters,
     specialization: filters.specializations,
     page: currentPage,
@@ -22,8 +22,8 @@ export const QuestionsListPanel = () => {
 
   const currentSpecialization = filters.specializations
     ? specializations?.data.filter(
-      (spec) => spec.id === filters.specializations
-    )[0].title
+        (spec) => spec.id === filters.specializations
+      )[0].title
     : undefined;
 
   const handlePageChange = (page: number) => {
@@ -33,6 +33,7 @@ export const QuestionsListPanel = () => {
   return (
     <QuestionsList
       questions={questionsData?.data || []}
+      isLoading={isLoading}
       questionsTitle={currentSpecialization}
       pagination={{
         currentPage,

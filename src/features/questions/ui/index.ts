@@ -1,4 +1,4 @@
-export { QuestionsList } from './QuestionsList/QuestionsList'
+export { QuestionsList } from './QuestionsList/QuestionsList.lazy'
 
 export { QuestionsFilter } from './QuestionsFilter/QuestionsFilter'
 

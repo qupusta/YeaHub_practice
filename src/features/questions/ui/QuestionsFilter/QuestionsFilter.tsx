@@ -4,30 +4,42 @@ import { ISpecialization } from '@/entities/specializations/model/types/speciali
 
 import { BlockWrapper } from '@/shared/ui/BlockWrapper';
 import {
+  QuestionsComplexity,
+  QuestionsRate,
   QuestionsSkills,
   QuestionsSpecializations,
 } from '@/entities/questions';
 import { ISkills } from '@/entities/skills/model/types/skills';
+import { RateFilterId } from '@/shared/constants/rateFilters';
+import { ComplexityFilterId } from '@/shared/constants/complexityFilters';
 
 interface QuestionsFilterProps {
   onSearch: (query: string) => void;
   onSpecializationToggle: (id: number) => void;
+  onSkillsToggle: (id: number) => void;
+  onRateToggle: (id: RateFilterId) => void;
+  onComplexityToggle: (id: ComplexityFilterId) => void;
   selectedSpecializations: number | undefined;
   specializations: ISpecialization[];
   skills: ISkills[];
-  onSkillsToggle: (id: number) => void;
   selectedSkills: number[] | undefined;
+  selectedRate: RateFilterId[] | undefined;
+  selectedComplexity: ComplexityFilterId[] | undefined;
   initialSearchQuery?: string;
 }
 
 export const QuestionsFilter = ({
   onSearch,
   onSpecializationToggle,
+  onSkillsToggle,
+  onRateToggle,
+  onComplexityToggle,
   selectedSpecializations,
+  selectedSkills,
+  selectedRate,
+  selectedComplexity,
   specializations,
   skills,
-  selectedSkills,
-  onSkillsToggle,
   initialSearchQuery = '',
 }: QuestionsFilterProps) => {
   const [query, setQuery] = useState(initialSearchQuery);
@@ -53,6 +65,14 @@ export const QuestionsFilter = ({
         onSkillToggle={onSkillsToggle}
         selectedSkills={selectedSkills}
         skills={skills}
+      />
+      <QuestionsComplexity
+        selectedComplexity={selectedComplexity}
+        onComplexitySelected={onComplexityToggle}
+      />
+      <QuestionsRate
+        selectedRate={selectedRate}
+        onRateSelected={onRateToggle}
       />
     </BlockWrapper>
   );

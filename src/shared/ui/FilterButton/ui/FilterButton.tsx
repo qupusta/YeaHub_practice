@@ -1,22 +1,22 @@
 import styles from './FilterButton.module.css';
 
-interface FilterButtonProps {
-  id: number;
-  onChangeHandler: (id: number) => void;
+interface FilterButtonProps<T> {
+  id: T;
+  onChangeHandler: (id: T) => void;
   title: string;
   isChecked: boolean;
   type?: string;
   image?: string | undefined;
 }
 
-export const FilterButton = ({
+export const FilterButton = <T,>({
   id,
   image = undefined,
   onChangeHandler,
   title,
   isChecked,
   type = 'radio',
-}: FilterButtonProps) => (
+}: FilterButtonProps<T>) => (
   <label className={styles.filter__label}>
     {image && (
       <img

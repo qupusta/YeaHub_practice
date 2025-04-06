@@ -6,6 +6,8 @@ import { questionsPageSelectors } from '@/features/questions/model/selectors/que
 import { questionsActions } from '@/features/questions/model/slices/questionsSlice';
 import { QuestionsFilter } from '@/features/questions/ui';
 import { useGetSkillsQuery } from '@/entities/skills/api/skillsApi';
+import { RateFilterId } from '@/shared/constants/rateFilters';
+import { ComplexityFilterId } from '@/shared/constants/complexityFilters';
 
 export const QuestionsFilterPanel = () => {
   const dispatch = useDispatch();
@@ -30,15 +32,29 @@ export const QuestionsFilterPanel = () => {
     dispatch(questionsActions.setPage(1));
   };
 
+  const handleRateToggle = (id: RateFilterId) => {
+    dispatch(questionsActions.setRate(id));
+    dispatch(questionsActions.setPage(1));
+  };
+
+  const handleComplexityToggle = (id: ComplexityFilterId) => {
+    dispatch(questionsActions.setComplexity(id));
+    dispatch(questionsActions.setPage(1));
+  };
+
   return (
     <QuestionsFilter
       onSearch={handleSearch}
       onSpecializationToggle={handleSpecializationToggle}
-      selectedSpecializations={filters.specializations}
+      onSkillsToggle={handleSkillsToggle}
+      onRateToggle={handleRateToggle}
+      onComplexityToggle={handleComplexityToggle}
       specializations={specializations?.data || []}
       skills={skills?.data || []}
+      selectedSpecializations={filters.specializations}
       selectedSkills={filters.skills}
-      onSkillsToggle={handleSkillsToggle}
+      selectedRate={filters.rate}
+      selectedComplexity={filters.complexity}
     />
   );
 };
