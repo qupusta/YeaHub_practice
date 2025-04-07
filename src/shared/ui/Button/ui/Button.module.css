@@ -3,6 +3,7 @@
 }
 
 .button--purple {
+  border: none;
   color: var(--text-color-white);
   background-color: var(--background-primary);
   border-radius: 12px;
@@ -11,8 +12,18 @@
 }
 
 .button--transparent {
+  border: none;
   color: var(--color-purple-800);
   background-color: transparent;
+}
+
+.button--transparent-border {
+  background-color: inherit;
+  border: 1px solid var(--color-purple-800);
+  border-radius: 12px;
+  color: var(--color-purple-800);
+  height: 48px;
+  width: 170px;
 }
 
 .button--transparent:hover {
@@ -21,7 +32,6 @@
 }
 
 .button {
-  border: none;
   cursor: pointer;
   font-weight: var(--font-weight-600);
 }

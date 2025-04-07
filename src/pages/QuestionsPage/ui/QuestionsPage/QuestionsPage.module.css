@@ -8,6 +8,6 @@
 .skeleton__wrapper {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 80px;
+    gap: 20px;
     width: 100%;
 }

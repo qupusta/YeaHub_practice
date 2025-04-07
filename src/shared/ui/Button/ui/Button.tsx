@@ -14,6 +14,7 @@ export const Button = ({
     {
       [styles['button--purple']]: variant === 'purple',
       [styles['button--transparent']]: variant === 'transparent',
+      [styles['button--transparent-border']]: variant === 'transparent-border',
       [styles.wide]: wide,
     },
     className
