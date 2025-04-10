@@ -12,6 +12,7 @@ export const Button = ({
   const buttonClasses = classNames(
     styles.button,
     {
+      [styles['regular']]: variant === 'regular',
       [styles['button--purple']]: variant === 'purple',
       [styles['button--transparent']]: variant === 'transparent',
       [styles['button--transparent-border']]: variant === 'transparent-border',

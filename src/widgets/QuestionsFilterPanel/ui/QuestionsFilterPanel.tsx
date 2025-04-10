@@ -9,11 +9,23 @@ import { useGetSkillsQuery } from '@/entities/skills/api/skillsApi';
 import { RateFilterId } from '@/shared/constants/rateFilters';
 import { ComplexityFilterId } from '@/shared/constants/complexityFilters';
 
-export const QuestionsFilterPanel = () => {
+import styles from './QuestionsFilter.module.css';
+import { useScreenSize } from '@/shared/hooks/useScreenSize';
+
+interface QuestionsFilterPanelProps {
+  isOpen: boolean;
+  onOpenFiltersModal: () => void;
+}
+
+export const QuestionsFilterPanel = ({
+  isOpen,
+  onOpenFiltersModal,
+}: QuestionsFilterPanelProps) => {
   const dispatch = useDispatch();
   const filters = useSelector(questionsPageSelectors.filters);
   const { data: specializations } = useGetSpecializationsQuery();
   const { data: skills } = useGetSkillsQuery();
+  const { isTablet, isMobile } = useScreenSize();
 
   const handleSearch = useCallback(
     (query: string) => {
@@ -43,18 +55,28 @@ export const QuestionsFilterPanel = () => {
   };
 
   return (
-    <QuestionsFilter
-      onSearch={handleSearch}
-      onSpecializationToggle={handleSpecializationToggle}
-      onSkillsToggle={handleSkillsToggle}
-      onRateToggle={handleRateToggle}
-      onComplexityToggle={handleComplexityToggle}
-      specializations={specializations?.data || []}
-      skills={skills?.data || []}
-      selectedSpecializations={filters.specializations}
-      selectedSkills={filters.skills}
-      selectedRate={filters.rate}
-      selectedComplexity={filters.complexity}
-    />
+    <div
+      className={`${isOpen ? styles['modal-wrapper--open'] : styles['modal-wrapper--closed']}`}
+    >
+      {isTablet || isMobile ? (
+        <button
+          className={styles['modal__button']}
+          onClick={onOpenFiltersModal}
+        />
+      ) : null}
+      <QuestionsFilter
+        onSearch={handleSearch}
+        onSpecializationToggle={handleSpecializationToggle}
+        onSkillsToggle={handleSkillsToggle}
+        onRateToggle={handleRateToggle}
+        onComplexityToggle={handleComplexityToggle}
+        specializations={specializations?.data || []}
+        skills={skills?.data || []}
+        selectedSpecializations={filters.specializations}
+        selectedSkills={filters.skills}
+        selectedRate={filters.rate}
+        selectedComplexity={filters.complexity}
+      />
+    </div>
   );
 };

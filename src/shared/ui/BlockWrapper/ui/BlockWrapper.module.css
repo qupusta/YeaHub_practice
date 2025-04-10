@@ -4,4 +4,19 @@
     padding: 24px 20px 24px 24px;
     align-items: center;
     box-sizing: border-box;
+    min-width: 340px;
+}
+
+@media screen and (max-width: 770px) {
+    .wrapper {
+        margin: 0 12px;
+    }
+  }
+
+@media screen and (max-width: 480px){
+    .wrapper {
+        padding: 12px 10px;
+        max-width: 480px;
+        margin: 0 12px;
+    }
 }

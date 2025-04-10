@@ -9,12 +9,14 @@ import { TagBubble } from '@/shared/ui/TagBubble';
 
 interface QuestionCardProps {
   title: string;
+  id: number;
   shortAnswer: string;
   rate: number;
   complexity: number;
 }
 
 export const QuestionsCard = ({
+  id,
   title,
   shortAnswer,
   rate,
@@ -38,8 +40,9 @@ export const QuestionsCard = ({
       </div>
 
       <div
-        className={`${styles.popover} ${openPopover ? styles['popover--open'] : ''
-          }`}
+        className={`${styles.popover} ${
+          openPopover ? styles['popover--open'] : ''
+        }`}
       >
         <div className={styles.question__tags}>
           <TagBubble title="Рейтинг" value={rate} />
@@ -49,10 +52,9 @@ export const QuestionsCard = ({
           className={styles['question__short-answer']}
           dangerouslySetInnerHTML={{ __html: sanitizedHTML }}
         />
-        {
-          openPopover &&
+        {openPopover && (
           <NavLink
-            to="/###"
+            to={`:${id}`}
             style={{
               position: 'absolute',
               right: 0,
@@ -63,7 +65,7 @@ export const QuestionsCard = ({
           >
             Подробнее &rarr;
           </NavLink>
-        }
+        )}
       </div>
     </li>
   );

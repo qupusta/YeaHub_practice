@@ -12,6 +12,7 @@
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .navigation__auth-buttons {
@@ -24,4 +25,87 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.navigation__nav-buttons > .dropdown button {
+  position: relative;
+  width: 192px;
+  height: 38px;
+  text-align: start;
+}
+
+.navigation__nav-buttons .dropdown .dropdown--open {
+  transform: translate(20px, 10px);
+}
+
+.navigation__auth-buttons .dropdown .dropdown--open {
+  transform: translate(-120px, 10px);
+}
+
+.navigation__nav-buttons > .dropdown > button::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+  transform: rotate(180deg);
+  width: 16px;
+  height: 16px;
+  background-color: var(--text-color-light);
+  mask-image: url(../../../shared/assets/icons/accordeon.svg);
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.dropdown__text {
+  color: var(--text-color-light);
+}
+
+.nav-buttons__burger--mobile {
+  display: block;
+  background-image: url(../../../shared/assets/icons/Hamburger.svg);
+  width: 32px;
+  height: 32px;
+  background-position: center;
+}
+
+.dropdown--open {
+  top: 60px;
+  position: absolute;
+  background-color: var(--background-block);
+  box-shadow: 0px 4px 10px 0px rgba(106, 99, 118, 0.1);
+  display: flex;
+  row-gap: 4px;
+  flex-direction: column;
+  border-radius: 6px;
+  padding: 6px;
+  z-index: 100;
+}
+
+@media screen and (max-width: 1023px) {
+  
+  .header__navigation {
+    max-width: 804px;
+  }
+
+  
+}
+
+@media screen and (max-width: 770px) {
+  .header__navigation {
+    margin: 0 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .navigation__nav-buttons > .dropdown button {
+    width: auto;
+  }
+
+  .navigation__auth-buttons .dropdown .dropdown--open {
+    transform: translate(-150px, 0px);
+  }
+  .navigation__nav-buttons .dropdown .dropdown--open {
+    transform: translate(0, 0);
+  }
 }
