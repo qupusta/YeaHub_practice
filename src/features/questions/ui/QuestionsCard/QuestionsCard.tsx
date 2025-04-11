@@ -27,7 +27,10 @@ export const QuestionsCard = ({
   const sanitizedHTML = DOMPurify.sanitize(shortAnswer);
 
   return (
-    <li className={styles['questions-list__question']}>
+    <li
+      onClick={() => setOpenPopover(!openPopover)}
+      className={styles['questions-list__question']}
+    >
       <div className={styles['question__header']}>
         <p className={styles['question__title']}>{title}</p>
         <Button

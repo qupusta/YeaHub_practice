@@ -2,9 +2,9 @@ import styles from './FilterButton.module.css';
 
 interface FilterButtonProps<T> {
   id: T;
-  onChangeHandler: (id: T) => void;
+  onChangeHandler?: (id: T) => void;
   title: string;
-  isChecked: boolean;
+  isChecked?: boolean;
   type?: string;
   image?: string | undefined;
 }
@@ -30,7 +30,7 @@ export const FilterButton = <T,>({
       type={type}
       className={`${styles['filter-button']} ${type === 'checkbox' ? styles['filter-button--checkbox'] : ''}`}
       checked={isChecked}
-      onChange={() => onChangeHandler(id)}
+      onChange={() => onChangeHandler?.(id)}
     />
   </label>
 );

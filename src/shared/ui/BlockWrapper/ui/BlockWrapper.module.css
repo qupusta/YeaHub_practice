@@ -5,6 +5,7 @@
     align-items: center;
     box-sizing: border-box;
     min-width: 340px;
+    box-shadow: 0px 4px 10px 0px rgba(106, 99, 118, 0.1);
 }
 
 @media screen and (max-width: 770px) {

@@ -3,7 +3,7 @@ import accordeon from '@/shared/assets/icons/accordeon.svg';
 import styles from './AccordeonButton.module.css';
 
 interface AccordeonButtonProps {
-  isOpen: boolean;
+  isOpen?: boolean;
 }
 
 export const AccordeonButton = ({ isOpen }: AccordeonButtonProps) => {

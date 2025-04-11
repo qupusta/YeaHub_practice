@@ -11,7 +11,7 @@ export interface IQuestion {
   keywords: string[];
   longAnswer: string;
   shortAnswer: string;
-  status: 'public' | 'draft';
+  status: 'public';
   rate: number;
   complexity: number;
   createdAt: string;

@@ -28,7 +28,12 @@ export const questionsApi = createApi({
       providesTags: [ApiTags.QUESTIONS],
     }),
     getPublicQuestionById: builder.query<GetQuestionsByIdResponse, GetQuestionsByIdParamsRequest>({
-      query: (id) => `/public-questions/${id}`,
+      query: (param) => {
+        const id = param?.questionId?.replace(':', '');
+        return {
+          url: `/public-questions/${id || ''}`,
+        }
+      },
       providesTags: [ApiTags.QUESTION_DETAIL],
     }),
   }),

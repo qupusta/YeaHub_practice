@@ -17,7 +17,7 @@ export const QuestionsComplexity = ({
 }: QuestionCoplexityProps) => {
   return (
     <>
-      <h3 className={styles.filterPanel__title}>Сложность</h3>
+      <h3 className={styles.filterPanel__title}>Сложность вопросов</h3>
       <ul className={styles['complexity-list']}>
         {COMPLEXITY_FILTERS.map((compleixty) => (
           <li
