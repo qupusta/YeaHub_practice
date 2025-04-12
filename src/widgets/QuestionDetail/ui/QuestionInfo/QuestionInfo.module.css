@@ -1,0 +1,26 @@
+.question__info__title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 8px 0;
+  opacity: 66%;
+}
+
+.question__info__skills {
+  display: flex;
+  padding: 0;
+  gap: 10px;
+}
+
+.question__info__tags {
+  display: flex;
+  column-gap: 16px;
+}
+
+.question__info__keywords {
+  display: flex;
+  gap: 10px 16px;
+}
+
+.keyword {
+  color: var(--color-purple-700);
+}

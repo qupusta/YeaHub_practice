@@ -1,0 +1,6 @@
+.question__answer__title {
+  color: var(--text-color-primary);
+  font-size: 20px;
+  margin: 0;
+  font-weight: 500;
+}

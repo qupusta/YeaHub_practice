@@ -3,7 +3,7 @@ import { questionsActions } from '../../model/slices/questionsSlice';
 
 import { QuestionsListSkeleton } from './QuestionsList.skeleton';
 import { QuestionsPagination } from '../QuestionsPagination/QuestionsPagination';
-import { QuestionsCard } from '../QuestionsCard/QuestionsCard';
+import { QuestionsCard } from '@/entities/questions';
 import type { IQuestion } from '@/features/questions/model/types/question';
 import { BlockWrapper } from '@/shared/ui/BlockWrapper';
 import { Button } from '@/shared/ui/Button';
