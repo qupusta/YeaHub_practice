@@ -35,3 +35,34 @@
   align-self: start;
   height: fit-content;
 }
+
+@media screen and (max-width: 1023px) {
+  .grid-container > :nth-child(5) {
+    display: none;
+  }
+  .grid-container {
+    grid-template-columns: 1fr;
+    width: 708px;
+  }
+
+  .container {
+    margin: 75px auto;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grid-container > :nth-child(5) {
+    display: none;
+  }
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    margin: 75px auto;
+    display: flex;
+    justify-content: center;
+  }
+}

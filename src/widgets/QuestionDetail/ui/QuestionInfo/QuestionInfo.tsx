@@ -4,6 +4,7 @@ import { FilterButton } from '@/shared/ui/FilterButton'
 import { TagBubble } from '@/shared/ui/TagBubble'
 import styles from './QuestionInfo.module.css'
 import { IQuestion } from '@/features/questions/model/types/question'
+import { nanoid } from 'nanoid'
 
 type QuestionInfoProps = Pick<IQuestion, 'rate' | 'complexity' | 'questionSkills' | 'keywords'>
 
@@ -31,7 +32,7 @@ export const QuestionInfo = ({ rate, complexity, questionSkills, keywords }: Que
       <h3 className={styles.question__info__title}>Ключевые слова:</h3>
       <div className={styles.question__info__keywords}>
         {keywords?.map((keyword: string) => (
-          <span className={styles.keyword}>#{keyword}</span>
+          <span key={nanoid()} className={styles.keyword}>#{keyword}</span>
         ))}
       </div>
 
