@@ -22,7 +22,7 @@ export const QuestionsSpecializations = ({
 
   return (
     <>
-      <h3 className={styles.filterPanel__title}>Специализация</h3>
+      <h3 className={styles.filterPanel__title}>Выберите специализацию</h3>
       <ul className={styles['specializations-list']}>
         {visibleList.map((spec) => (
           <li

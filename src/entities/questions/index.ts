@@ -3,3 +3,4 @@ export { QuestionsSpecializationsSkeleton } from './ui/QuestionsSpecializations/
 export { QuestionsSkills } from './ui/QuestionsSkills/QuestionsSkills'
 export { QuestionsRate } from './ui/QuestionsRate/QuestionsRate'
 export { QuestionsComplexity } from './ui/QuestionsComplexity/QuestionsComplexity'
+export { QuestionsCard } from './ui/QuestionsCard/QuestionsCard'

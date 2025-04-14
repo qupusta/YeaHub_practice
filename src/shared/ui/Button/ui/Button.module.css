@@ -26,6 +26,11 @@
   width: 170px;
 }
 
+.regular {
+  border: none;
+  background-color: inherit;
+}
+
 .button--transparent:hover {
   display: inline;
   text-decoration: underline;

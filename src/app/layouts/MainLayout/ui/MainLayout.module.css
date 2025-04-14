@@ -1,4 +1,6 @@
 .container {
-  margin: 0 auto var(--container-m-b-desktop);
-  max-width: 1216px;
-}
+    flex: 1 1 auto;
+    margin: 0 auto var(--container-m-b-desktop);
+    width: 100%;
+    max-width: var(--container-width);
+  }

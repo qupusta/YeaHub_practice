@@ -22,7 +22,7 @@ export const QuestionsSkills = ({
 
   return (
     <>
-      <h3 className={styles.filterPanel__title}>Навыки</h3>
+      <h3 className={styles.filterPanel__title}>Выберите навыки</h3>
 
       <ul className={styles['skills-list']}>
         {visibleList.map((skill) => (
@@ -33,7 +33,9 @@ export const QuestionsSkills = ({
               id={skill.id}
               title={skill.title}
               onChangeHandler={(id) => onSkillToggle(id)}
-              isChecked={selectedSkills ? selectedSkills.indexOf(skill.id) !== -1 : false}
+              isChecked={
+                selectedSkills ? selectedSkills.indexOf(skill.id) !== -1 : false
+              }
             />
           </li>
         ))}

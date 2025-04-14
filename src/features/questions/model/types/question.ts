@@ -11,7 +11,7 @@ export interface IQuestion {
   keywords: string[];
   longAnswer: string;
   shortAnswer: string;
-  status: 'public' | 'draft';
+  status: 'public';
   rate: number;
   complexity: number;
   createdAt: string;
@@ -20,9 +20,6 @@ export interface IQuestion {
   updatedBy: string | null;
   questionSpecializations: ISpecialization[];
   questionSkills: ISkills[];
-  checksCount?: number;
-  isLearned?: boolean;
-  profileId?: string;
 }
 
 export type PublicQuestion = Omit<IQuestion, 'isLearned' | 'profileId' | 'checksCount'>
@@ -40,8 +37,6 @@ export interface GetQuestionsListParamsRequest {
   specialization?: string | number;
   order?: string;
   orderBy?: string;
-  random?: boolean;
-  profileId?: string;
 }
 
 export type GetQuestionsListResponse = Response<IQuestion[]>;
@@ -50,5 +45,4 @@ export type GetQuestionsByIdResponse = IQuestion;
 
 export type GetQuestionsByIdParamsRequest = {
   questionId?: string;
-  profileId: string;
 }

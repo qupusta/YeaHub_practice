@@ -1,22 +1,22 @@
 import { useGetSpecializationsQuery } from '@/entities/specializations/api/specializationsApi';
-import { useGetPublicQuestionsQuery } from '@/features/questions/api/questionsApi';
+import { useQuestionsList } from '@/features/questions/model';
 import { questionsPageSelectors } from '@/features/questions/model/selectors/questionsSelectors';
 import { questionsActions } from '@/features/questions/model/slices/questionsSlice';
 import { QuestionsList } from '@/features/questions/ui';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-export const QuestionsListPanel = () => {
-  const dispatch = useDispatch();
-  const currentPage = useSelector(questionsPageSelectors.currentPage);
-  const filters = useSelector(questionsPageSelectors.filters);
+interface QuestionsListPanelProps {
+  onOpenFiltersModal: () => void;
+}
 
-  const { data: questionsData, isLoading } = useGetPublicQuestionsQuery({
-    ...filters,
-    specialization: filters.specializations,
-    page: currentPage,
-    skills: filters.skills,
-  });
+export const QuestionsListPanel = ({
+  onOpenFiltersModal,
+}: QuestionsListPanelProps) => {
+  const dispatch = useDispatch();
+  const filters = useSelector(questionsPageSelectors.filters);
+  const currentPage = useSelector(questionsPageSelectors.currentPage);
+  const { data: questionsData, isLoading } = useQuestionsList();
 
   const { data: specializations } = useGetSpecializationsQuery();
 
@@ -32,6 +32,7 @@ export const QuestionsListPanel = () => {
 
   return (
     <QuestionsList
+      onOpenModal={onOpenFiltersModal}
       questions={questionsData?.data || []}
       isLoading={isLoading}
       questionsTitle={currentSpecialization}

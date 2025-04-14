@@ -14,7 +14,7 @@ export const QuestionsRate = ({
 }: QuestionsRateProps) => {
   return (
     <>
-      <h3 className={styles.filterPanel__title}>Рейтинг</h3>
+      <h3 className={styles.filterPanel__title}>Рейтинг вопросов</h3>
       <ul className={styles['rate-list']}>
         {RATE_FILTERS.map((rateItem) => (
           <li key={rateItem.id} className={styles['rate-list__list-elem']}>

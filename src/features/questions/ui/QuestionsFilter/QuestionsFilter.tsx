@@ -12,6 +12,7 @@ import {
 import { ISkills } from '@/entities/skills/model/types/skills';
 import { RateFilterId } from '@/shared/constants/rateFilters';
 import { ComplexityFilterId } from '@/shared/constants/complexityFilters';
+import styles from './QuestionsFilter.module.css';
 
 interface QuestionsFilterProps {
   onSearch: (query: string) => void;
@@ -50,30 +51,32 @@ export const QuestionsFilter = ({
   };
 
   return (
-    <BlockWrapper>
-      <SearchInput
-        onSearch={handleChangeInput}
-        placeholder="Введите запрос..."
-        initialValue={query}
-      />
-      <QuestionsSpecializations
-        onSpecializationToggle={onSpecializationToggle}
-        selectedSpecializations={selectedSpecializations}
-        specializations={specializations}
-      />
-      <QuestionsSkills
-        onSkillToggle={onSkillsToggle}
-        selectedSkills={selectedSkills}
-        skills={skills}
-      />
-      <QuestionsComplexity
-        selectedComplexity={selectedComplexity}
-        onComplexitySelected={onComplexityToggle}
-      />
-      <QuestionsRate
-        selectedRate={selectedRate}
-        onRateSelected={onRateToggle}
-      />
-    </BlockWrapper>
+    <div className={styles.container}>
+      <BlockWrapper>
+        <SearchInput
+          onSearch={handleChangeInput}
+          placeholder="Введите запрос..."
+          initialValue={query}
+        />
+        <QuestionsSpecializations
+          onSpecializationToggle={onSpecializationToggle}
+          selectedSpecializations={selectedSpecializations}
+          specializations={specializations}
+        />
+        <QuestionsSkills
+          onSkillToggle={onSkillsToggle}
+          selectedSkills={selectedSkills}
+          skills={skills}
+        />
+        <QuestionsComplexity
+          selectedComplexity={selectedComplexity}
+          onComplexitySelected={onComplexityToggle}
+        />
+        <QuestionsRate
+          selectedRate={selectedRate}
+          onRateSelected={onRateToggle}
+        />
+      </BlockWrapper>
+    </div>
   );
 };

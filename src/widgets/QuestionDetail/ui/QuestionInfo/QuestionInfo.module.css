@@ -1,0 +1,71 @@
+.question__info__title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 8px 0;
+  opacity: 66%;
+}
+
+.question__info__skills {
+  display: flex;
+  padding: 0;
+  gap: 10px;
+}
+
+.question__info__tags {
+  display: flex;
+  column-gap: 16px;
+}
+
+.question__info__keywords {
+  display: flex;
+  gap: 10px 16px;
+}
+
+.keyword {
+  color: var(--color-purple-700);
+}
+
+@media screen and (max-width: 1023px) {
+  .modal-wrapper--open {
+      display: flex;
+      flex-direction: column;
+      position:fixed;
+      top: 70px;
+      right: 0;
+      width: 330px;
+      max-width: 100%;
+  }
+
+  .modal-wrapper--open > div {
+    border-radius: 0;
+    width: 100%;
+  }
+  
+  .modal-wrapper--closed {
+      display: none;
+  }
+  
+  .modal__button {
+    background-image: url(../../../../shared/assets/icons/closeCircle.svg);
+      background-size: 20px;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 16px;
+      top: 10px;
+      width: 30px;
+      height: 30px;
+      background-color: inherit;
+      border: none;
+  }
+  
+}
+
+@media screen and (max-width: 480px) {
+  .modal-wrapper--open {
+      right: 0;
+      width: 100%;
+  }
+  .modal-wrapper--open > :nth-child(2) {
+    margin: 0;
+  }
+}
