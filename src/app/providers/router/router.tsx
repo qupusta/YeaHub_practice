@@ -8,6 +8,7 @@ import '@/app/styles/App.css';
 import { Suspense } from 'react';
 import { QuestionsPage, QuestionsPageSkeleton } from '@/pages/QuestionsPage';
 import { QuestionDetailPage } from '@/pages/QuestionDetailPage';
+import { QuestionContentSkeleton } from '@/widgets/QuestionDetail';
 
 export const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
           {
             path: ':questionId',
             element: (
-              <Suspense fallback={<h2>Loading</h2>}>
+              <Suspense fallback={<QuestionContentSkeleton />}>
                 <QuestionDetailPage />
               </Suspense>
             ),

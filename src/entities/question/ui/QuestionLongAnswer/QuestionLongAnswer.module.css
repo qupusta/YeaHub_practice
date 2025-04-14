@@ -15,7 +15,7 @@
   -webkit-mask-image: linear-gradient(180deg, #FFFFFF 80%, rgba(255, 255, 255, 0) 100%);
 }
 
-.expandButton {
+.expand-button {
   width: 100%;
   color: var(--text-color-secondary);
   cursor: pointer;
@@ -25,7 +25,10 @@
   column-gap: 10px
 }
 
-.expandButton:hover {
-  display: flex;
+.expand-button--expanded > div {
+  transform: rotate(180deg);
 }
 
+.expand-button:hover {
+  display: flex;
+}
