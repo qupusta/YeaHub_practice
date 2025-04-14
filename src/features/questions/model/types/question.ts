@@ -22,8 +22,6 @@ export interface IQuestion {
   questionSkills: ISkills[];
 }
 
-export type PublicQuestion = Omit<IQuestion, 'isLearned' | 'profileId' | 'checksCount'>
-
 export interface GetQuestionsListParamsRequest {
   page?: number;
   limit?: number;

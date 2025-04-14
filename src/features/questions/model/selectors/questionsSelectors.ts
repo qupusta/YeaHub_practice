@@ -1,10 +1,10 @@
-import { State } from "@/shared/config/store/State";
+import { RootState } from "@/app/providers/store/config/store";
 
 export const questionsPageSelectors = {
-  filters: (state: State) => state.questions,
-  currentPage: (state: State) => state.questions.page,
-  titleFilter: (state: State) => state.questions.title,
-  skillsFilter: (state: State) => state.questions.skills,
-  complexityFilter: (state: State) => state.questions.complexity,
-  specializationsFilter: (state: State) => state.questions.specializations,
+  filters: (state: RootState) => state.questions,
+  currentPage: (state: RootState) => state.questions.page,
+  titleFilter: (state: RootState) => state.questions.title,
+  skillsFilter: (state: RootState) => state.questions.skills,
+  complexityFilter: (state: RootState) => state.questions.complexity,
+  specializationsFilter: (state: RootState) => state.questions.specializations,
 }

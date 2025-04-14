@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import styles from './SearchInput.module.css';
+import useDebounce from '@/shared/hooks/useDebounce';
 
 interface SearchInputProps {
   onSearch: (query: string) => void;
@@ -15,14 +16,11 @@ export const SearchInput = ({
   debounceDelay = 500,
 }: SearchInputProps) => {
   const [query, setQuery] = useState(initialValue);
+  const debouncedQuery = useDebounce(query, debounceDelay);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      onSearch(query);
-    }, debounceDelay);
-
-    return () => clearTimeout(timer);
-  }, [query, debounceDelay, onSearch]);
+    onSearch(debouncedQuery);
+  }, [debouncedQuery, onSearch]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);

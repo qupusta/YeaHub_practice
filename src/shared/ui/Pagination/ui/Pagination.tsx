@@ -1,4 +1,4 @@
-import { usePagination } from '@/shared/lib/hooks/usePagination';
+import { usePagination } from '@/shared/hooks/usePagination';
 import { PaginationProps } from '../model/types/PaginationProps';
 
 import arrowSvg from '@/shared/assets/icons/Arrow.svg';
