@@ -1,7 +1,5 @@
-export { QuestionsList } from './QuestionsList/QuestionsList.lazy'
+export { QuestionsFilter } from './QuestionsFilter/QuestionsFilter';
 
-export { QuestionsFilter } from './QuestionsFilter/QuestionsFilter'
+export { QuestionsListSkeleton } from '../../../widgets/QuestionsListPanel/ui/QuestionsListPanel.skeleton';
 
-export { QuestionsListSkeleton } from './QuestionsList/QuestionsList.skeleton'
-
-export { QuestionsFilterSkeleton } from './QuestionsFilter/QuestionsFilter.skeleton'
+export { QuestionsFilterSkeleton } from './QuestionsFilter/QuestionsFilter.skeleton';
