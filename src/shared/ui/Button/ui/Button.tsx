@@ -1,6 +1,7 @@
-import styles from './Button.module.css';
 import classNames from 'classnames';
 import { ButtonProps } from '../model/types';
+
+import styles from './Button.module.css';
 
 export const Button = ({
   onClick,

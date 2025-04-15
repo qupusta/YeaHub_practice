@@ -6,14 +6,17 @@ import { skillsApi } from '@/entities/skills/api/skillsApi';
 
 export const store = configureStore({
   reducer: {
+    questions: questionsReducer,
     [questionsApi.reducerPath]: questionsApi.reducer,
     [specializationsApi.reducerPath]: specializationsApi.reducer,
-    questions: questionsReducer,
     [skillsApi.reducerPath]: skillsApi.reducer,
-
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(questionsApi.middleware, specializationsApi.middleware, skillsApi.middleware),
+    getDefaultMiddleware().concat(
+      questionsApi.middleware,
+      specializationsApi.middleware,
+      skillsApi.middleware
+    ),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

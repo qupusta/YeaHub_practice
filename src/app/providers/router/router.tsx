@@ -1,14 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
+import { Suspense } from 'react';
 
 import { MainLayout } from '@/app/layouts/MainLayout';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ErrorPage } from '@/pages/ErrorPage';
-
-import '@/app/styles/App.css';
-import { Suspense } from 'react';
-import { QuestionsPage, QuestionsPageSkeleton } from '@/pages/QuestionsPage';
 import { QuestionDetailPage } from '@/pages/QuestionDetailPage';
 import { QuestionContentSkeleton } from '@/widgets/QuestionDetail';
+import { QuestionsPage, QuestionsPageSkeleton } from '@/pages/QuestionsPage';
+
+import '@/app/styles/App.css';
 
 export const router = createBrowserRouter([
   {

@@ -1,7 +1,7 @@
 import { FilterButton } from '@/shared/ui/FilterButton';
-import styles from './QuestionsRate.module.css';
-
 import { RateFilterId, RATE_FILTERS } from '@/shared/constants/rateFilters';
+
+import styles from './QuestionsRate.module.css';
 
 interface QuestionsRateProps {
   selectedRate: RateFilterId[] | undefined;

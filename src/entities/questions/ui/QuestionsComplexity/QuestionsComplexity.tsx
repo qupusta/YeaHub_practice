@@ -1,10 +1,11 @@
 import { FilterButton } from '@/shared/ui/FilterButton';
-import styles from './QuestionsComplexity.module.css';
 
 import {
   COMPLEXITY_FILTERS,
   ComplexityFilterId,
 } from '@/shared/constants/complexityFilters';
+
+import styles from './QuestionsComplexity.module.css';
 
 interface QuestionCoplexityProps {
   selectedComplexity: ComplexityFilterId[] | undefined;

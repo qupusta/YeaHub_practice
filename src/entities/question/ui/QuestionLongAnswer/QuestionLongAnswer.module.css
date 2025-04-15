@@ -11,8 +11,12 @@
 
 .question__long-answer.collapsed {
   max-height: 50vh;
-  mask-image: linear-gradient(180deg, #FFFFFF 80%, rgba(255, 255, 255, 0) 100%);
-  -webkit-mask-image: linear-gradient(180deg, #FFFFFF 80%, rgba(255, 255, 255, 0) 100%);
+  mask-image: linear-gradient(180deg, #ffffff 80%, rgba(255, 255, 255, 0) 100%);
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #ffffff 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .expand-button {
@@ -22,11 +26,7 @@
   position: relative;
   display: flex;
   justify-content: center;
-  column-gap: 10px
-}
-
-.expand-button--expanded > div {
-  transform: rotate(180deg);
+  column-gap: 10px;
 }
 
 .expand-button:hover {

@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,md}\"",
     "preview": "vite preview",
-    "knip": "knip"
+    "knip": "knip",
+    "prepare": "husky"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
@@ -28,6 +29,7 @@
   "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx,json,css,scss,md}": [
       "prettier --write",
+      "eslint --fix",
       "git add"
     ]
   },

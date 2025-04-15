@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import DOMPurify from 'dompurify';
 import { AccordeonButton } from '@/shared/ui/AccordeonButton';
 import { Button } from '@/shared/ui/Button';
+import { TagBubble } from '@/shared/ui/TagBubble';
 
 import styles from './QuestionsCard.module.css';
-import { NavLink } from 'react-router-dom';
-import { TagBubble } from '@/shared/ui/TagBubble';
 
 interface QuestionCardProps {
   title: string;

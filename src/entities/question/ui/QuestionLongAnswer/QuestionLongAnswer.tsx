@@ -1,8 +1,9 @@
-import { BlockWrapper } from '@/shared/ui/BlockWrapper';
-import styles from './QuestionLongAnswer.module.css';
 import { useState } from 'react';
+import { BlockWrapper } from '@/shared/ui/BlockWrapper';
 import { Button } from '@/shared/ui/Button';
 import { AccordeonButton } from '@/shared/ui/AccordeonButton';
+
+import styles from './QuestionLongAnswer.module.css';
 
 interface QuestionLongAnswerProps {
   sanitizedLongAnswer: string;
@@ -25,7 +26,7 @@ export const QuestionLongAnswer = ({
         onClick={() => setIsExpanded(!isExpanded)}
       >
         {isExpanded ? 'Свернуть' : 'Развернуть'}
-        <AccordeonButton />
+        <AccordeonButton isOpen={isExpanded} />
       </Button>
     </BlockWrapper>
   );

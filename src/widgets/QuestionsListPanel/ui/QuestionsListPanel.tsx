@@ -15,7 +15,7 @@ export const QuestionsListPanel = ({
 }: QuestionsListPanelProps) => {
   const dispatch = useDispatch();
   const filters = useSelector(questionsPageSelectors.filters);
-  const currentPage = useSelector(questionsPageSelectors.currentPage);
+  const currentPage = Number(useSelector(questionsPageSelectors.currentPage));
   const { data: questionsData, isLoading } = useQuestionsList();
 
   const { data: specializations } = useGetSpecializationsQuery();

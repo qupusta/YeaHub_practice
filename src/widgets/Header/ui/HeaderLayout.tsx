@@ -1,8 +1,9 @@
-import { AppLogo } from '@/shared/ui/AppLogo';
-import styles from './Header.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { AppLogo } from '@/shared/ui/AppLogo';
 import { LinkButton } from '@/shared/ui/LinkButton';
 import { Button } from '@/shared/ui/Button';
+
+import styles from './Header.module.css';
 
 export const Header = () => {
   const navigate = useNavigate();

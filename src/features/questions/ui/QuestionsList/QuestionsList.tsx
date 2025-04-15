@@ -1,14 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { questionsActions } from '../../model/slices/questionsSlice';
-
 import { QuestionsListSkeleton } from './QuestionsList.skeleton';
 import { QuestionsPagination } from '../QuestionsPagination/QuestionsPagination';
 import { QuestionsCard } from '@/entities/questions';
-import type { IQuestion } from '@/features/questions/model/types/question';
 import { BlockWrapper } from '@/shared/ui/BlockWrapper';
 import { Button } from '@/shared/ui/Button';
 import { useScreenSize } from '@/shared/hooks/useScreenSize';
 
+import type { IQuestion } from '@/features/questions/model/types/question';
 import styles from './QuestionsList.module.css';
 
 interface QuestionsListProps {

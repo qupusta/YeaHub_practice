@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { ISkills } from '@/entities/skills/model/types/skills';
 import { Button } from '@/shared/ui/Button';
+import { VISIBLE_LIST_ITEMS } from '@/shared/constants/visibleListItems';
 
 import styles from './QuestionsSkills.module.css';
 
@@ -18,7 +19,7 @@ export const QuestionsSkills = ({
   skills,
 }: QuestionsSkillsProps) => {
   const [showAll, setShowAll] = useState(false);
-  const visibleList = showAll ? skills : skills.slice(0, 4);
+  const visibleList = showAll ? skills : skills.slice(0, VISIBLE_LIST_ITEMS);
 
   return (
     <>

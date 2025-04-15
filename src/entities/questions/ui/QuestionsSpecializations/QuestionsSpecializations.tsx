@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { ISpecialization } from '@/entities/specializations/model/types/specializations';
 import { Button } from '@/shared/ui/Button';
+import { VISIBLE_LIST_ITEMS } from '@/shared/constants/visibleListItems';
 
 import styles from './QuestionsSpecializations.module.css';
 
@@ -18,7 +19,9 @@ export const QuestionsSpecializations = ({
   specializations,
 }: QuestionsSpecializationsProps) => {
   const [showAll, setShowAll] = useState(false);
-  const visibleList = showAll ? specializations : specializations.slice(0, 4);
+  const visibleList = showAll
+    ? specializations
+    : specializations.slice(0, VISIBLE_LIST_ITEMS);
 
   return (
     <>
